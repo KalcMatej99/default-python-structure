@@ -1,0 +1,46 @@
+[project]
+name = "package_name_example"
+version = "0.1.0"
+description = "Default python project"
+authors = [
+    {name = "Matej Kalc", email = "matejkalc99@protonmail.com"},
+]
+dependencies = [
+    "pandas>=2.2.1",
+    "numpy>=1.26.4",
+    "matplotlib>=3.9.0",
+    "scikit-learn>=1.5.1",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.9.0",
+    "ruff>=0.3.5",
+    "pre-commit>=3.7.0",
+    "pre-commit-hooks>=4.6.0",
+    "pandas-stubs>=2.2.1.240316",
+    "types-PyYAML>=6.0.12.20240311",
+    "types-requests>=2.31.0.20240406",
+    "types-tqdm>=4.66.0.20240417",
+]
+
+[tool.ruff]
+
+line-length = 140
+
+[tool.ruff.lint]
+
+extend-select = ["ALL"]
+
+ignore = ["S301", "D104", "G004", "TRY003", "EM101", "EM102"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/{tests}/*" = ["S101", "INP001"]
+"**/{docs}/*" = ["INP001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
